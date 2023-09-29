@@ -352,7 +352,7 @@ CREATE OR REPLACE PACKAGE BODY WDS_GESTAO_EXPANSAO_TABLESPACE AS
 					
 				WHEN OTHERS THEN
 			
-					REGISTRAR_MSG_LOG( 'Erro ao acessar a tabela GV_$PARAMETER para validar o cliente. Sigla: ' || CLIENTE_INFO.GET_SIGLA || ' Erro > ' ||  SQLERRM );
+					REGISTRAR_MSG_LOG( 'Erro ao acessar a tabela GV_$PARAMETER para validar o cliente. Erro: ' || SQLERRM || ' - ' || DBMS_UTILITY.FORMAT_ERROR_BACKTRACE );
 										
 					RAISE RAISE_ERRO_OTHERS;
 					
